@@ -68,6 +68,7 @@ const MapaInteractivo = () => {
           borderRadius: '15px',
           border: '4px solid #cd9a6c',
         }}
+        
       ></div>
     </div>
   );
