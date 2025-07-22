@@ -1,15 +1,17 @@
-import React from 'react';
+
+import { useNavigate } from 'react-router-dom';
 import VectorDeMovilidadBlanco from '../assets/Images/VectorDeMovilidadBlanco.png';
 
 const Footer = () => {
-  return (
-    <footer className="dt-footer text-white py-4" style={{ backgroundColor: '#71785B' }}>
-      <div className="container dt-footer-container">
+  const navigate = useNavigate();
+return (
+<footer className="dt-footer text-white py-4" style={{ backgroundColor: '#71785B' }}>
+<div className="container dt-footer-container">
 
         {/* Logo */}
         <div className="dt-footer-logo mb-3">
-          <img src={VectorDeMovilidadBlanco} alt="Logo" className="img-fluid" style={{ maxWidth: '150px' }} />
-        </div>
+<img src={VectorDeMovilidadBlanco} alt="Logo" className="img-fluid" style={{ maxWidth: '150px' }} />
+</div>
 
         {/* Acordeón móvil */}
         <div className="d-lg-none">

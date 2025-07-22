@@ -1,0 +1,33 @@
+.contenedor-mapa {
+  background-color: #ffffff;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.banner-superior {
+  background-color: #ffffff;
+  padding: 20px 0;
+}
+
+.titulo-mapa {
+  font-weight: bold;
+  color: #000;
+  font-size: 2rem;
+}
+
+.separador {
+  width: 70%;
+  height: 4px;
+  background-color: #c2996b;
+  margin: 0 auto 20px auto;
+  border: none;
+}
+
+.leaflet-container-react {
+  height: 600px;
+  width: 90%;
+  margin: auto;
+  border-radius: 15px;
+  border: 4px solid #c2996b;
+}

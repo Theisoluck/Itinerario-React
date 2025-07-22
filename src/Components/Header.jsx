@@ -5,8 +5,6 @@ import VectorDeMorelos from '../assets/Images/VectorDeMorelos.png';
 import VectorDemovilidad from '../assets/Images/VectorDeMovilidad.png';
 
 
-
-
 const Header = () => {
     const navigate = useNavigate();
 
