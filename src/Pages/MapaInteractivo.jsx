@@ -66,8 +66,6 @@ const MapaInteractivo = () => {
           >
             ←
           </button>
-
-
           <div className="mt-5">
             <h5 className="fw-bold mb-3">Zonas</h5>
 
@@ -97,9 +95,8 @@ const MapaInteractivo = () => {
                             type="button"
                             onClick={() => setRuta15Abierta(!ruta15Abierta)}
                           >
-                            Ruta 15
+                            Ruta 1
                           </button>
-
                         </h2>
                         {ruta15Abierta && (
                           <div className="accordion-body" style={{ backgroundColor: 'white', color: '#283C2A' }}>
@@ -115,7 +112,7 @@ const MapaInteractivo = () => {
                                   style={{ color: '#283C2A' }}
                                   htmlFor="trayectoA"
                                 >
-                                  Trayecto A
+                                  UNIVERSIDAD-GUACAMAYAS-UNIVERSIDAD
                                 </label>
                               </li>
                               <li className="form-check">
@@ -129,27 +126,39 @@ const MapaInteractivo = () => {
                                   style={{ color: '#283C2A' }}
                                   htmlFor="trayectoB"
                                 >
-                                  Trayecto B
+                                  JERUSALEN-UNIVERSIDAD-ACATLIPA
+                                </label>
+                              </li>
+                              <li className="form-check">
+                                <input
+                                  className="form-check-input"
+                                  type="checkbox"
+                                  id="trayectoC"
+                                />
+                                <label
+                                  className="form-check-label"
+                                  style={{ color: '#283C2A' }}
+                                  htmlFor="trayectoC"
+                                >
+                                  JERUSALEN - UNIVERSIDAD - GUACAMAYAS
                                 </label>
                               </li>
                             </ul>
                           </div>
                         )}
-
-
                       </div>
-                      {/* Puedes agregar más rutas aquí */}
                     </div>
                   </div>
                 )}
               </div>
 
-              {/* ZONA SUR */}
+
               <div className="accordion-item" style={{ backgroundColor: '#283C2A', color: 'white' }}>
 
                 <h2 className="accordion-header">
                   <button
-                    className="accordion-button bg-secondary text-white"
+                    className="accordion-button"
+                    style={{ backgroundColor: '#cd9a6c', color: 'white' }}
                     type="button"
                     onClick={() => setZonaSurAbierta(!zonaSurAbierta)}
                   >
@@ -163,12 +172,13 @@ const MapaInteractivo = () => {
                 )}
               </div>
 
-              {/* ZONA ORIENTE */}
+
               <div className="accordion-item" style={{ backgroundColor: '#283C2A', color: 'white' }}>
 
                 <h2 className="accordion-header">
                   <button
-                    className="accordion-button bg-secondary text-white"
+                    className="accordion-button"
+                    style={{ backgroundColor: '#cd9a6c', color: 'white' }}
                     type="button"
                     onClick={() => setZonaOrienteAbierta(!zonaOrienteAbierta)}
                   >
