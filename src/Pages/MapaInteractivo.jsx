@@ -10,14 +10,43 @@ const MapaInteractivo = () => {
   const [ruta15Abierta, setRuta15Abierta] = useState(false);
   const [zonaSurAbierta, setZonaSurAbierta] = useState(false);
   const [zonaOrienteAbierta, setZonaOrienteAbierta] = useState(false);
+  const [mapa, setMapa] = useState(null);
+  const capaRutaRef = useRef(null);
+
 
   useEffect(() => {
+
+
     const map = L.map(mapRef.current).setView([18.6813, -99.1013], 10);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
+    setMapa(map); // justo después de crear el mapa
     return () => map.remove();
   }, []);
+
+  const mostrarRuta = async (nombreTrayecto) => {
+    try {
+      const res = await fetch(`http://localhost:5000/api/rutas/centro/${encodeURIComponent(nombreTrayecto)}`);
+      const data = await res.json();
+
+      if (capaRutaRef.current) {
+        mapa.removeLayer(capaRutaRef.current);
+      }
+
+      const nuevaCapa = L.geoJSON(data.geojson, {
+        style: { color: '#cd9a6c', weight: 4 }
+      }).addTo(mapa);
+
+      capaRutaRef.current = nuevaCapa;
+      mapa.fitBounds(nuevaCapa.getBounds());
+
+    } catch (error) {
+      console.error('Error al cargar la ruta:', error);
+    }
+  };
+
+
 
   return (
     <div className="bg-white d-flex flex-column min-vh-100">
@@ -106,13 +135,25 @@ const MapaInteractivo = () => {
                                   className="form-check-input"
                                   type="checkbox"
                                   id="trayectoA"
+                                  onChange={(e) => {
+                                    if (e.target.checked) {
+                                      mostrarRuta("1.-UNIVERSIDAD-GUACAMAYAS-UNIVERSIDAD");
+                                    } else {
+                                      if (capaRutaRef.current && mapa) {
+                                        mapa.removeLayer(capaRutaRef.current);
+                                        capaRutaRef.current = null;
+                                      }
+                                    }
+                                  }}
                                 />
+
+
                                 <label
                                   className="form-check-label"
                                   style={{ color: '#283C2A' }}
                                   htmlFor="trayectoA"
                                 >
-                                  UNIVERSIDAD-GUACAMAYAS-UNIVERSIDAD
+                                  1.-UNIVERSIDAD-GUACAMAYAS-UNIVERSIDAD
                                 </label>
                               </li>
                               <li className="form-check">
@@ -120,13 +161,24 @@ const MapaInteractivo = () => {
                                   className="form-check-input"
                                   type="checkbox"
                                   id="trayectoB"
+                                  onChange={(e) => {
+                                    if (e.target.checked) {
+                                      mostrarRuta("2.- JERUSALEN-UNIVERSIDAD-ACATLIPA");
+                                    } else {
+                                      if (capaRutaRef.current && mapa) {
+                                        mapa.removeLayer(capaRutaRef.current);
+                                        capaRutaRef.current = null;
+                                      }
+                                    }
+                                  }}
                                 />
+
                                 <label
                                   className="form-check-label"
                                   style={{ color: '#283C2A' }}
                                   htmlFor="trayectoB"
                                 >
-                                  JERUSALEN-UNIVERSIDAD-ACATLIPA
+                                  2.-JERUSALEN-UNIVERSIDAD-ACATLIPA
                                 </label>
                               </li>
                               <li className="form-check">
@@ -134,13 +186,24 @@ const MapaInteractivo = () => {
                                   className="form-check-input"
                                   type="checkbox"
                                   id="trayectoC"
+                                  onChange={(e) => {
+                                    if (e.target.checked) {
+                                      mostrarRuta("3.- JERUSALEN - UNIVERSIDAD - GUACAMAYAS");
+                                    } else {
+                                      if (capaRutaRef.current && mapa) {
+                                        mapa.removeLayer(capaRutaRef.current);
+                                        capaRutaRef.current = null;
+                                      }
+                                    }
+                                  }}
                                 />
+
                                 <label
                                   className="form-check-label"
                                   style={{ color: '#283C2A' }}
                                   htmlFor="trayectoC"
                                 >
-                                  JERUSALEN - UNIVERSIDAD - GUACAMAYAS
+                                  3.-JERUSALEN - UNIVERSIDAD - GUACAMAYAS
                                 </label>
                               </li>
                             </ul>
