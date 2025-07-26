@@ -3,12 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mapa interactivo</title>
+    <title>Ruta de la salud</title>
 
     <!-- Ícono en la pestaña del navegador -->
-    <!-- index.html -->
-<link rel="icon" type="image/png" href="/favicon.png" />
-
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
     <!-- CSS propio -->
     <link rel="stylesheet" href="/Assets/Css/Estilos.css" />
@@ -24,15 +22,33 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet/dist/leaflet.css"
+    />
+
+    <!-- Leaflet Routing Machine CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css"
+    />
   </head>
 
   <body>
     <div id="root"></div>
 
-    <!-- React app (Vite) -->
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Leaflet Routing Machine JS -->
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+
+    <!-- React App con Vite -->
     <script type="module" src="/src/main.jsx"></script>
 
-    <!-- Bootstrap JS bundle con Popper -->
+    <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
       defer
